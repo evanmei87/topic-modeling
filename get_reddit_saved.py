@@ -10,7 +10,7 @@ username='Terror_Rabbit',
 password='cApriItaly878')
 
 saved = reddit.user.me().saved(limit=3)
-thread_info_dict = {"title": [], "thumbnail": [], "subreddit": [], "score": [], "permalink": [], "num_comments": []}
+thread_info_dict = {"title": [], "thumbnail": [] , "score": [], "subreddit": [], "permalink": [], "num_comments": []}
 
 for item in saved:
     if isinstance(item, Submission):
@@ -31,5 +31,5 @@ for item in saved:
         thread_info_dict["permalink"].append(item.permalink)
         thread_info_dict["num_comments"].append(item.num_comments)
         print(item.body, item.name, item.permalink, item.score, item.subreddit)
-saved_data = pd.DataFrame(thread_info_dict)
+saved_data = pd.DataFrame(thread_info_dict, columns= thread_info_dict.keys())
 saved_data.to_csv('reddit_saved.csv')
