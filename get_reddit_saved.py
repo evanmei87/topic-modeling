@@ -11,6 +11,7 @@ words = open("words-by-frequency.txt").read().split()
 wordcost = dict((k, log((i+1)*log(len(words)))) for i,k in enumerate(words))
 maxword = max(len(x) for x in words)
 
+# Some subreddits the words are not separated by spaces so we need to segement them
 def infer_spaces(s):
     """Uses dynamic programming to infer the location of spaces in a string
     without spaces."""
@@ -54,6 +55,7 @@ for item in saved:
     if isinstance(item, Submission):
         title = item.title
         body = item.selftext
+        # Use regex to remove the r/ from the subreddit name
         subreddit = re.sub(r"(\w)([A-Z])", r"\1 \2", infer_spaces(str(item.subreddit).lower()))
 
         thread_info_dict["title"].append(title)
