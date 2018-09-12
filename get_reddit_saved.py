@@ -44,8 +44,8 @@ def infer_spaces(s):
 reddit = praw.Reddit(client_id='XTJY4uWB8reLFA', 
 client_secret='6Zl-Hm-u_SamDnjLRywz1BHx3WY', 
 user_agent='Save_my_Saves', 
-username='Terror_Rabbit', 
-password='cApriItaly878')
+username='User_name', 
+password='password')
 
 saved = reddit.user.me().saved(limit=3)
 # Create a dictionary to store the thread's information
